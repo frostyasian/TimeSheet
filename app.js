@@ -18,12 +18,12 @@ $("#submit").on("click", function() {
 function populate(snapShot) {
 
     var newEntry = $("<tr>");
-    newEntry.append("<th>").text($(snapShot.val().name));
-    newEntry.append("<th>").text($(snapShot.val().role));
-    newEntry.append("<th>").text($(snapShot.val().startDate));
+    newEntry.append("<th>").text(snapShot.val().name);
+    newEntry.append("<th>").text(snapShot.val().role);
+    newEntry.append("<th>").text(snapShot.val().startDate);
     var monthsWorked = "";
     newEntry.append("<th>").text(monthsWorked);
-    newEntry.append("<th>").text($(snapShot.val().rate));
+    newEntry.append("<th>").text(snapShot.val().rate);
     var totalBilled = "";
     newEntry.append("<th>").text(totalBilled);
     $("#current-table").append(newEntry);

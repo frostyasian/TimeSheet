@@ -38,10 +38,12 @@ function doTest() {
     })
 }
 
+// function getall() {
+//     database.ref(dbTimeSheet).
+// }
 
 // ignore this for now...
-dataRef.ref(dbTimeSheet).on("child_added", function(childSnapshot) {
-
+database.ref(dbTimeSheet).on("child_added", function(childSnapshot) {
     // Log everything that's coming out of snapshot
     console.log(childSnapshot.val().name);
     console.log(childSnapshot.val().role);
@@ -52,6 +54,6 @@ dataRef.ref(dbTimeSheet).on("child_added", function(childSnapshot) {
     // Handle the errors
     }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
-    });
+});
   
   
