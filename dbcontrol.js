@@ -45,11 +45,12 @@ function doTest() {
 // ignore this for now...
 database.ref(dbTimeSheet).on("child_added", function(childSnapshot) {
     // Log everything that's coming out of snapshot
-    console.log(childSnapshot.val().name);
-    console.log(childSnapshot.val().role);
-    console.log(childSnapshot.val().startDate);
-    console.log(childSnapshot.val().rate);
-    console.log(childSnapshot.val().dateAdded);
+    console.log("-----------------");
+    console.log("name: " + childSnapshot.val().name);
+    console.log("role: " + childSnapshot.val().role);
+    console.log("startDate: " + childSnapshot.val().startDate);
+    console.log("rate: " + childSnapshot.val().rate);
+    console.log("dateadded: "+ childSnapshot.val().dateAdded);
     populate(childSnapshot); // this is the function in the 'other' javascript file.
     // Handle the errors
     }, function(errorObject) {
