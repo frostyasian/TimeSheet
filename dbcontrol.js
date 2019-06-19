@@ -48,7 +48,7 @@ dataRef.ref(dbTimeSheet).on("child_added", function(childSnapshot) {
     console.log(childSnapshot.val().startDate);
     console.log(childSnapshot.val().rate);
     console.log(childSnapshot.val().dateAdded);
-    otherFunctionName(childSnapshot);
+    populate(childSnapshot); // this is the function in the 'other' javascript file.
     // Handle the errors
     }, function(errorObject) {
     console.log("Errors handled: " + errorObject.code);
