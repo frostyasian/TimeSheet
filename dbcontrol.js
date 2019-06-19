@@ -1,6 +1,3 @@
-/* global moment firebase */
-
-// Initialize Firebase
 
 // Initialize Firebase
 var firebaseConfig = {
@@ -16,9 +13,16 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 var dbTimeSheet = database.ref("/time-sheet");
 
+function doTest() {
+    var newRecord = {
+        name: "bslghs",
+        email: "sfslvi we "
+}
 
-  firebase.initializeApp(config);
-  
+  PushToDB(newRecord);
+
+}
+
   // Create a variable to reference the database.
   var database = firebase.database();
   
@@ -29,7 +33,17 @@ var dbTimeSheet = database.ref("/time-sheet");
   // -----------------------------
   function PushToDB(oneRecord) {
     database.ref(dbTimeSheet).push({
-        name: name,
-        email: email  
+        name: oneRecord.name,
+        email: oneRecord.email  
     })
 }
+
+
+// DataTransfer.ref().on(
+//     "child-added",
+//     function(childShapshot) {
+//         childSnapshot.val().name);
+
+
+//     }
+// )
