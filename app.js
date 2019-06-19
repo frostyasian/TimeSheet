@@ -1,28 +1,31 @@
-$("#submit").on("click", function() {
+$.getScript("dbcontrols.js", function() {
+    alert("Script loaded but not necessarily executed.");
+});
 
-    database.ref("/time-sheet").push({
-        name: $("#name-input").val(),
-        role: $("#role-input").val(),
-        startDate: $("#start-year-input").val(),
-        rate: $("#rate-input").val(),
-    });
-    
+$("#submit").on("click", function() {
+    record = {
+      name: $("#name-input").val().trim(),
+      role: $("#role-input").val().trim(),
+      startDate: $("#start-year-input").val().trim(),
+      rate: $("#rate-input").val().trim(),
+    }
+
+    PushToDB(record);
+  
 });
 
 
-function populate(response) {
+function populate(snapShot) {
 
-    for (var i = 0; i < response.length; i ++) {
-        var newEntry = $("<tr>");
-        newEntry.append("<th>").text($(response[i].name));
-        newEntry.append("<th>").text($(response[i].role));
-        newEntry.append("<th>").text($(response[i].startDate));
-        var monthsWorked = "";
-        newEntry.append("<th>").text(monthsWorked);
-        newEntry.append("<th>").text($(response[i].rate));
-        var totalBilled = "";
-        newEntry.append("<th>").text(totalBilled);
-        $("#current-table").append(newEntry);
-    }
+    var newEntry = $("<tr>");
+    newEntry.append("<th>").text($(snapShot.val().name));
+    newEntry.append("<th>").text($(snapShot.val().role));
+    newEntry.append("<th>").text($(snapShot.val().startDate));
+    var monthsWorked = "";
+    newEntry.append("<th>").text(monthsWorked);
+    newEntry.append("<th>").text($(snapShot.val().rate));
+    var totalBilled = "";
+    newEntry.append("<th>").text(totalBilled);
+    $("#current-table").append(newEntry);
     
 }
